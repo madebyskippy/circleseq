@@ -18,6 +18,7 @@ public class NoteManager : MonoBehaviour {
 	private Note GrabbedNote { get; set; }
 	private Vector3 GrabOffset { get; set; }
 	private float SpawnTimer { get; set; }
+	private bool NoteSpawned { get; set; }
 
 	private void Start() {
 		this.Notes = new List<Note>();
@@ -34,7 +35,7 @@ public class NoteManager : MonoBehaviour {
 				if (Vector3.Distance(position, note.transform.position) < m_NoteTouchRadius) {
 					this.GrabbedNote = note;
 					this.GrabOffset = note.transform.position - position;
-					this.SpawnTimer = Time.time;
+					this.SpawnTimer = Time.time; //only do this if it was the note in spawn?
 					if (this.GrabbedNote.Slot != null) {
 						this.GrabbedNote.Slot.Track.RemoveNote(this.GrabbedNote);
 						this.GrabbedNote.Slot = null;
@@ -61,23 +62,28 @@ public class NoteManager : MonoBehaviour {
 	}
 
 	private void PlaceNote(Note note) {
-		float closestSlotDistance = Mathf.Infinity;
-		Track closestTrack = null;
-		Slot closestSlot = null;
-		Vector3 notePos = note.transform.position;
-		foreach (Track track in m_Tracks) {
-			foreach (Slot slot in track.Slots) {
-				notePos.z = slot.Position.z;
-				float distance = Vector3.Distance(notePos, slot.Position);
-				if (distance < m_SlotPlacementThreshold && distance < closestSlotDistance) {
-					closestSlotDistance = distance;
-					closestSlot = slot;
-					closestTrack = track;
+		if (note != null) {
+			float closestSlotDistance = Mathf.Infinity;
+			Track closestTrack = null;
+			Slot closestSlot = null;
+			Vector3 notePos = note.transform.position;
+			foreach (Track track in m_Tracks) {
+				foreach (Slot slot in track.Slots) {
+					notePos.z = slot.Position.z;
+					float distance = Vector3.Distance(notePos, slot.Position);
+					if (distance < m_SlotPlacementThreshold && distance < closestSlotDistance) {
+						closestSlotDistance = distance;
+						closestSlot = slot;
+						closestTrack = track;
+					}
 				}
 			}
-		}
-		if (closestSlot != null) {
-			closestTrack.AddNote(note, closestSlot);
+			if (closestSlot != null) {
+				closestTrack.AddNote(note, closestSlot);
+			} else {
+				this.Notes.Remove(note);
+				Destroy(note.gameObject);
+			}
 		}
 	}
 
@@ -85,6 +91,7 @@ public class NoteManager : MonoBehaviour {
 		this.SpawnTimer = -1;
 		this.Notes.Add(Instantiate(m_NotePrefabs[Random.Range(0, m_NotePrefabs.Length)], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
+		this.Notes[^1].Bounce();
 	}
 
 	private void OnDrawGizmos() {
