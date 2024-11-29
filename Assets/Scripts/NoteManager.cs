@@ -80,6 +80,10 @@ public class NoteManager : MonoBehaviour {
 				}
 			}
 			if (closestSlot != null) {
+				if (closestSlot.Note != null) {
+					this.Notes.Remove(closestSlot.Note);
+					Destroy(closestSlot.Note.gameObject);
+				}
 				closestTrack.AddNote(note, closestSlot);
 			} else {
 				this.Notes.Remove(note);

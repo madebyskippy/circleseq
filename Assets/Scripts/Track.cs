@@ -11,21 +11,19 @@ public class Track : MonoBehaviour {
 	public List<Slot> Slots { get; private set; }
 
 	private List<Note> Notes { get; set; }
-	private Dictionary<Slot, Note> SlotNoteDictionary { get; set; }
 
 	private int LastSlotIndex { get; set; }
 
 	private void Start() {
 		this.Notes = new List<Note>();
 		this.Slots = new List<Slot>();
-		this.SlotNoteDictionary = new Dictionary<Slot, Note>();
 		for (int i = 0; i < m_NumSlots; i++) {
 			Slot newSlot = Instantiate(m_SlotPrefab, this.transform);
 			newSlot.SetRadius(m_Radius);
 			newSlot.Rotate((360f / m_NumSlots) * i);
 			newSlot.Track = this;
+			newSlot.Note = null;
 			this.Slots.Add(newSlot);
-			this.SlotNoteDictionary.Add(newSlot, null);
 		}
 		this.LastSlotIndex = 0;
 	}
@@ -34,10 +32,8 @@ public class Track : MonoBehaviour {
 		int slot = Mathf.FloorToInt(progress * m_NumSlots);
 		if (slot != this.LastSlotIndex) {
 			this.LastSlotIndex = slot;
-			if (this.SlotNoteDictionary.TryGetValue(this.Slots[slot], out Note note)) {
-				if (note != null) {
-					note.Play();
-				}
+			if (this.Slots[slot].Note != null) {
+				this.Slots[slot].Note.Play();
 			}
 		}
 	}
@@ -50,14 +46,12 @@ public class Track : MonoBehaviour {
 			note.Slot = slot;
 			note.Bounce();
 			this.Notes.Add(note);
-			this.SlotNoteDictionary[slot] = note;
+			slot.Note = note;
 		}
 	}
 
 	public void RemoveNote(Note note) {
-		if (this.SlotNoteDictionary.ContainsKey(note.Slot)) {
-			this.SlotNoteDictionary[note.Slot] = null;
-		}
+		note.Slot.Note = null;
 		this.Notes.Remove(note);
 	}
 

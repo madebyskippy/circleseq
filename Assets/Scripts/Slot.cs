@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour {
 
 	public Vector3 Position { get { return m_Dot.transform.position; } }
 	public Track Track { get; set; }
+	public Note Note { get; set; }
 
 	public void SetRadius(float radius) {
 		m_Dot.transform.localPosition = new Vector3(radius, 0, 0);
