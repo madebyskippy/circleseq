@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour {
 
-	[SerializeField] private Note m_NotePrefab;
+	[SerializeField] private Note[] m_NotePrefabs;
 	[SerializeField] private float m_NoteTouchRadius = 0.5f;
 	[SerializeField] private Transform m_NoteSpawnPosition;
 
@@ -73,7 +73,7 @@ public class NoteManager : MonoBehaviour {
 	}
 
 	private void SpawnNote() {
-		this.Notes.Add(Instantiate(m_NotePrefab, this.transform));
+		this.Notes.Add(Instantiate(m_NotePrefabs[Random.Range(0, m_NotePrefabs.Length)], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 	}
 

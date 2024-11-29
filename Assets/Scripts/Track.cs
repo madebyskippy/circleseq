@@ -13,6 +13,8 @@ public class Track : MonoBehaviour {
 	private List<Note> Notes { get; set; }
 	private Dictionary<Slot, Note> SlotNoteDictionary { get; set; }
 
+	private int LastSlotIndex { get; set; }
+
 	private void Start() {
 		this.Notes = new List<Note>();
 		this.Slots = new List<Slot>();
@@ -24,9 +26,19 @@ public class Track : MonoBehaviour {
 			this.Slots.Add(newSlot);
 			this.SlotNoteDictionary.Add(newSlot, null);
 		}
+		this.LastSlotIndex = 0;
 	}
 
 	public void Play(float progress) {
+		int slot = Mathf.FloorToInt(progress * m_NumSlots);
+		if (slot != this.LastSlotIndex) {
+			this.LastSlotIndex = slot;
+			if (this.SlotNoteDictionary.TryGetValue(this.Slots[slot], out Note note)) {
+				if (note != null) {
+					note.Play();
+				}
+			}
+		}
 	}
 
 	public void AddNote(Note note, Slot slot) {
