@@ -16,6 +16,11 @@ public class Note : MonoBehaviour {
 
 	private float OnStartTime { get; set; }
 
+	public void SetClip(AudioClip clip) {
+		m_AudioSource.clip = clip;
+		m_OnDuration = clip.length;
+	}
+
 	public void Play() {
 		m_AudioSource.Stop();
 		m_AudioSource.Play();

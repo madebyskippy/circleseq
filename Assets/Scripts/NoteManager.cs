@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour {
 
+	[SerializeField] private SoundPack m_SoundPack;
 	[SerializeField] private Note[] m_NotePrefabs;
 	[SerializeField] private float m_NoteTouchRadius = 0.5f;
 	[SerializeField] private Transform m_NoteSpawnPosition;
@@ -94,9 +95,11 @@ public class NoteManager : MonoBehaviour {
 
 	private void SpawnNote() {
 		this.SpawnTimer = -1;
-		this.Notes.Add(Instantiate(m_NotePrefabs[Random.Range(0, m_NotePrefabs.Length)], this.transform));
+		int prefabIndex = Random.Range(0, m_NotePrefabs.Length);
+		this.Notes.Add(Instantiate(m_NotePrefabs[prefabIndex], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 		this.Notes[^1].Bounce();
+		this.Notes[^1].SetClip(m_SoundPack.Clips[Mathf.Min(prefabIndex, m_SoundPack.Clips.Count - 1)]);
 	}
 
 	private void OnDrawGizmos() {
