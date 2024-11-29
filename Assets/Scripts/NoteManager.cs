@@ -7,6 +7,7 @@ public class NoteManager : MonoBehaviour {
 	[SerializeField] private Note[] m_NotePrefabs;
 	[SerializeField] private float m_NoteTouchRadius = 0.5f;
 	[SerializeField] private Transform m_NoteSpawnPosition;
+	[SerializeField] private float m_SpawnInterval;
 
 	[Space(10)]
 	[SerializeField] private float m_SlotPlacementThreshold;
@@ -16,10 +17,12 @@ public class NoteManager : MonoBehaviour {
 	private List<Note> Notes { get; set; }
 	private Note GrabbedNote { get; set; }
 	private Vector3 GrabOffset { get; set; }
+	private float SpawnTimer { get; set; }
 
 	private void Start() {
 		this.Notes = new List<Note>();
 		this.Camera = Camera.main;
+		this.SpawnTimer = -1;
 		SpawnNote();
 	}
 
@@ -31,6 +34,11 @@ public class NoteManager : MonoBehaviour {
 				if (Vector3.Distance(position, note.transform.position) < m_NoteTouchRadius) {
 					this.GrabbedNote = note;
 					this.GrabOffset = note.transform.position - position;
+					this.SpawnTimer = Time.time;
+					if (this.GrabbedNote.Slot != null) {
+						this.GrabbedNote.Slot.Track.RemoveNote(this.GrabbedNote);
+						this.GrabbedNote.Slot = null;
+					}
 					break;
 				}
 			}
@@ -38,6 +46,10 @@ public class NoteManager : MonoBehaviour {
 		if (Input.GetMouseButtonUp(0)) {
 			PlaceNote(this.GrabbedNote);
 			this.GrabbedNote = null;
+		}
+
+		if (this.SpawnTimer > 0 && Time.time - SpawnTimer > m_SpawnInterval) {
+			SpawnNote();
 		}
 
 		if (this.GrabbedNote != null) {
@@ -66,13 +78,11 @@ public class NoteManager : MonoBehaviour {
 		}
 		if (closestSlot != null) {
 			closestTrack.AddNote(note, closestSlot);
-			SpawnNote();
-		} else {
-			note.transform.position = m_NoteSpawnPosition.position;
 		}
 	}
 
 	private void SpawnNote() {
+		this.SpawnTimer = -1;
 		this.Notes.Add(Instantiate(m_NotePrefabs[Random.Range(0, m_NotePrefabs.Length)], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 	}

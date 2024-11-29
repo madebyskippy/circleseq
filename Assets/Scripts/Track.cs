@@ -23,6 +23,7 @@ public class Track : MonoBehaviour {
 			Slot newSlot = Instantiate(m_SlotPrefab, this.transform);
 			newSlot.SetRadius(m_Radius);
 			newSlot.Rotate((360f / m_NumSlots) * i);
+			newSlot.Track = this;
 			this.Slots.Add(newSlot);
 			this.SlotNoteDictionary.Add(newSlot, null);
 		}
@@ -46,12 +47,16 @@ public class Track : MonoBehaviour {
 			Vector3 position = slot.Position;
 			position.z = note.transform.position.z;
 			note.transform.position = position;
+			note.Slot = slot;
 			this.Notes.Add(note);
 			this.SlotNoteDictionary[slot] = note;
 		}
 	}
 
 	public void RemoveNote(Note note) {
+		if (this.SlotNoteDictionary.ContainsKey(note.Slot)) {
+			this.SlotNoteDictionary[note.Slot] = null;
+		}
 		this.Notes.Remove(note);
 	}
 
