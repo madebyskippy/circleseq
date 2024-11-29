@@ -35,10 +35,11 @@ public class NoteManager : MonoBehaviour {
 				if (Vector3.Distance(position, note.transform.position) < m_NoteTouchRadius) {
 					this.GrabbedNote = note;
 					this.GrabOffset = note.transform.position - position;
-					this.SpawnTimer = Time.time; //only do this if it was the note in spawn?
 					if (this.GrabbedNote.Slot != null) {
 						this.GrabbedNote.Slot.Track.RemoveNote(this.GrabbedNote);
 						this.GrabbedNote.Slot = null;
+					} else {
+						this.SpawnTimer = Time.time;
 					}
 					break;
 				}

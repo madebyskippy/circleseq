@@ -134,6 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AudioSource: {fileID: 2601580838871133044}
   m_ScaleSpring: {fileID: 6951528977246669139}
+  m_OnDuration: 0.5
+  m_On: {fileID: 4848046091382242915}
+  m_Off: {fileID: 1007592154661769892}
 --- !u!114 &6951528977246669139
 MonoBehaviour:
   m_ObjectHideFlags: 0

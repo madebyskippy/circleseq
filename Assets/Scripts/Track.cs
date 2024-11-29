@@ -48,6 +48,7 @@ public class Track : MonoBehaviour {
 			position.z = note.transform.position.z;
 			note.transform.position = position;
 			note.Slot = slot;
+			note.Bounce();
 			this.Notes.Add(note);
 			this.SlotNoteDictionary[slot] = note;
 		}
