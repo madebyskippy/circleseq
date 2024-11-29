@@ -540,6 +540,10 @@ MonoBehaviour:
   - {fileID: 2289421110177999079, guid: 573e370107fce4530b9dc32e32eb1b26, type: 3}
   - {fileID: 2289421110177999079, guid: 339c0cbd491eb4bc2a8f681c5d3c4bc8, type: 3}
   - {fileID: 2289421110177999079, guid: 0e3e539e4247942b4a56de2a317d8c86, type: 3}
+  - {fileID: 2289421110177999079, guid: 912a7b11fa08e4cb2bee0162074140a6, type: 3}
+  - {fileID: 2289421110177999079, guid: df85917e38b424ca9a1652214a1c19bb, type: 3}
+  - {fileID: 2289421110177999079, guid: c70fbc4d3ae234eabb5a9c96535ffa7b, type: 3}
+  - {fileID: 2289421110177999079, guid: f1909e3912be140f0a2fdc75d512c6dd, type: 3}
   m_NoteTouchRadius: 0.6
   m_NoteSpawnPosition: {fileID: 864179384}
   m_SpawnInterval: 1
