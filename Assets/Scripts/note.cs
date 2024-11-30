@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Note : MonoBehaviour {
@@ -15,13 +13,16 @@ public class Note : MonoBehaviour {
 	public Slot Slot { get; set; }
 
 	private float OnStartTime { get; set; }
+	private Sample Sample { get; set; }
 
-	public void SetClip(AudioClip clip) {
-		m_AudioSource.clip = clip;
-		m_OnDuration = clip.length;
+	public void SetSample(Sample sample) {
+		this.Sample = sample;
 	}
 
 	public void Play() {
+		m_AudioSource.clip = this.Sample.AudioClipToPlay;
+		m_AudioSource.pitch = this.Sample.Pitch;
+		m_OnDuration = m_AudioSource.clip.length;
 		m_AudioSource.Stop();
 		m_AudioSource.Play();
 		Bounce();

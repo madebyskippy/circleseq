@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -99,7 +98,7 @@ public class NoteManager : MonoBehaviour {
 		this.Notes.Add(Instantiate(m_NotePrefabs[prefabIndex], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 		this.Notes[^1].Bounce();
-		this.Notes[^1].SetClip(m_SoundPack.Clips[Mathf.Min(prefabIndex, m_SoundPack.Clips.Count - 1)]);
+		this.Notes[^1].SetSample(m_SoundPack.Samples[Mathf.Min(prefabIndex, m_SoundPack.NumSamples - 1)]);
 	}
 
 	private void OnDrawGizmos() {
