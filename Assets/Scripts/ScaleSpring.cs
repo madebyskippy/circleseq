@@ -21,7 +21,7 @@ public class ScaleSpring : MonoBehaviour {
 
 	private void Update() {
 		this.Velocity += (-m_Stiffness * (this.Scale - 1)) - (m_Damping * this.Velocity);
-		this.Scale += this.Velocity;
+		this.Scale += this.Velocity * (Time.deltaTime * 300);
 		this.transform.localScale = new Vector3(this.Scale, this.Scale, 1f);
 	}
 }

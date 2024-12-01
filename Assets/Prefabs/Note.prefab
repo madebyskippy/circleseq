@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cacf4050e33c4555a2f8bf0c6202ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BounceForce: 0.1
-  m_Stiffness: 0.005
+  m_BounceForce: 0.075
+  m_Stiffness: 0.01
   m_Damping: 0.3
 --- !u!82 &2601580838871133044
 AudioSource:
