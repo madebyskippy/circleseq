@@ -50,20 +50,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2302955295480371724, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Name
-      value: Note9
+      value: Note-hat
       objectReference: {fileID: 0}
-    - target: {fileID: 2601580838871133044, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: deb69e176e71f489bb9d40873d20ecd7, type: 3}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
     - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b768fcdd0c87e4f558f622f42bedbaa5, type: 3}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.36
+      objectReference: {fileID: 0}
     - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d0368ceeab9634d61b3f05300db11b3f, type: 3}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

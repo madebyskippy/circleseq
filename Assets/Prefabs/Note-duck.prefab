@@ -50,20 +50,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2302955295480371724, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Name
-      value: Note5
+      value: Note-duck
       objectReference: {fileID: 0}
-    - target: {fileID: 2601580838871133044, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 00058741f62284c698607f392191d6e5, type: 3}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.06
+      objectReference: {fileID: 0}
     - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b75fe4a48ee5c46888385a22b43f145e, type: 3}
+    - target: {fileID: 6432231580932282869, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.x
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.07
+      objectReference: {fileID: 0}
     - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a87ebed8de4ae4d1ab9c3870e39bff5f, type: 3}
+    - target: {fileID: 6683399334319252885, guid: b3f2bf93c80e04b359be54fd778301e9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

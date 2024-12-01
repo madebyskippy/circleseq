@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 105466518}
   - component: {fileID: 105466517}
   m_Layer: 0
-  m_Name: SoundPack-samples-1
+  m_Name: SoundPack-samples
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,31 +152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Samples:
-  - m_AudioClip: {fileID: 8300000, guid: 09d9f03b992aa478297a1c169d2a4201, type: 3}
-    m_AdditionalClipOptions:
-    - {fileID: 8300000, guid: a098d932717a14849ba8f3dbde249b1b, type: 3}
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: b0f71a96ceb6c46179d9506ed67ea3f2, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: 198727f41a22c40cd90cd21466711340, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: bfb3a83aafa20411c8c526bbacad78d9, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: b9190a2311a8c4935aea6929b7de9262, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: 1b55f376162ee4374afebaab2d23f64f, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 5393ff422eef744e39f0599f2f536d82, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 0000000004000000
-  - m_AudioClip: {fileID: 8300000, guid: df9a060c842cd47788c95f4b3fb2e649, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 0000000004000000
+  - {fileID: 11400000, guid: d3c2ee2a30c6841e8b8362c1e804956c, type: 2}
+  - {fileID: 11400000, guid: 4ae293ba4f9f143bfaf5ed0ebcdb80b3, type: 2}
+  - {fileID: 11400000, guid: 5bab04709c5714462bc3e90e6a51449c, type: 2}
+  - {fileID: 11400000, guid: d776b45e90b6a4f7896c5415d065f36e, type: 2}
+  - {fileID: 11400000, guid: da6785dee1b1b4ab587588a00076fe95, type: 2}
+  - {fileID: 11400000, guid: 7447765e1766144d192ba39f69bb8e4c, type: 2}
+  - {fileID: 11400000, guid: 827b1caf1a9d840f48cf777cdac20bd3, type: 2}
+  - {fileID: 11400000, guid: 3300810808e5c498790770d68b25a22c, type: 2}
 --- !u!4 &105466518
 Transform:
   m_ObjectHideFlags: 0
@@ -273,31 +256,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Samples:
-  - m_AudioClip: {fileID: 8300000, guid: 09d9f03b992aa478297a1c169d2a4201, type: 3}
-    m_AdditionalClipOptions:
-    - {fileID: 8300000, guid: a098d932717a14849ba8f3dbde249b1b, type: 3}
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: deb69e176e71f489bb9d40873d20ecd7, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 198727f41a22c40cd90cd21466711340, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: bfb3a83aafa20411c8c526bbacad78d9, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 000000000400000007000000
-  - m_AudioClip: {fileID: 8300000, guid: 85edfd9ec1c5f4f3ca6d5752d8054aae, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 466a517209a2f48798c7c936263b9709, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 00058741f62284c698607f392191d6e5, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 53a1622230e0b407ea497fb9561dce84, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
+  - {fileID: 11400000, guid: d3c2ee2a30c6841e8b8362c1e804956c, type: 2}
+  - {fileID: 11400000, guid: d776b45e90b6a4f7896c5415d065f36e, type: 2}
+  - {fileID: 11400000, guid: 7447765e1766144d192ba39f69bb8e4c, type: 2}
+  - {fileID: 11400000, guid: 827b1caf1a9d840f48cf777cdac20bd3, type: 2}
+  - {fileID: 11400000, guid: 4ae293ba4f9f143bfaf5ed0ebcdb80b3, type: 2}
+  - {fileID: 11400000, guid: d1bc3d0c9048d4cb0afcb86704969092, type: 2}
+  - {fileID: 11400000, guid: 287fa800b6b4844d2a6738ec535415b9, type: 2}
+  - {fileID: 11400000, guid: 678441dccdc42450c902e36514b87836, type: 2}
 --- !u!4 &156114311
 Transform:
   m_ObjectHideFlags: 0
@@ -1083,30 +1049,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Samples:
-  - m_AudioClip: {fileID: 8300000, guid: deb69e176e71f489bb9d40873d20ecd7, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 9c109804324ca4e86941e2f49398b73b, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 466a517209a2f48798c7c936263b9709, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 85edfd9ec1c5f4f3ca6d5752d8054aae, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 00058741f62284c698607f392191d6e5, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: f0675d6838b2f4b8e8f5f8bf89b9836a, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 0512b43f85c124b198ef5590653e89fa, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
-  - m_AudioClip: {fileID: 8300000, guid: 53a1622230e0b407ea497fb9561dce84, type: 3}
-    m_AdditionalClipOptions: []
-    m_SemitoneOptions: 
+  - {fileID: 11400000, guid: d1bc3d0c9048d4cb0afcb86704969092, type: 2}
+  - {fileID: 11400000, guid: 883f25d3bf3b744c2814e825835c1f1d, type: 2}
+  - {fileID: 11400000, guid: 678441dccdc42450c902e36514b87836, type: 2}
+  - {fileID: 11400000, guid: af363503ee9a6481792311a6533c25f1, type: 2}
+  - {fileID: 11400000, guid: 287fa800b6b4844d2a6738ec535415b9, type: 2}
+  - {fileID: 11400000, guid: a448ef6ce3cbd4ed9a33942c43e9bac8, type: 2}
+  - {fileID: 11400000, guid: e4d6dde8b616e416fafce1330c790daa, type: 2}
+  - {fileID: 11400000, guid: 0646434728de646aa9c96914ed5014b2, type: 2}
 --- !u!4 &725789982
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,7 +1375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Radius: 4
-  m_NumSlots: 16
   m_SlotPrefab: {fileID: 9178282537662595038, guid: 3e39686f3b0cc4179ae6381bb026e556, type: 3}
 --- !u!4 &947697680
 Transform:
@@ -1556,7 +1505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Radius: 1.5
-  m_NumSlots: 6
   m_SlotPrefab: {fileID: 9178282537662595038, guid: 3e39686f3b0cc4179ae6381bb026e556, type: 3}
 --- !u!4 &1010748678
 Transform:
@@ -1687,8 +1635,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotePrefabs:
-  - {fileID: 2289421110177999079, guid: 40fe673d2f4dd4361989a24721411686, type: 3}
-  - {fileID: 2289421110177999079, guid: 573e370107fce4530b9dc32e32eb1b26, type: 3}
+  - {fileID: 2289421110177999079, guid: 749c2cf4fdcb4434e9b9a23148f91ec8, type: 3}
+  - {fileID: 2289421110177999079, guid: 77290651147f240be85fcb17b0e4c878, type: 3}
   - {fileID: 2289421110177999079, guid: 339c0cbd491eb4bc2a8f681c5d3c4bc8, type: 3}
   - {fileID: 2289421110177999079, guid: 0e3e539e4247942b4a56de2a317d8c86, type: 3}
   - {fileID: 2289421110177999079, guid: 912a7b11fa08e4cb2bee0162074140a6, type: 3}
@@ -2149,7 +2097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Radius: 2.75
-  m_NumSlots: 8
   m_SlotPrefab: {fileID: 9178282537662595038, guid: 3e39686f3b0cc4179ae6381bb026e556, type: 3}
 --- !u!4 &1888203047
 Transform:

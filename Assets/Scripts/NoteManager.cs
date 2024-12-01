@@ -96,11 +96,11 @@ public class NoteManager : MonoBehaviour {
 
 	private void SpawnNote() {
 		this.SpawnTimer = -1;
-		int prefabIndex = Random.Range(0, m_NotePrefabs.Length);
-		this.Notes.Add(Instantiate(m_NotePrefabs[prefabIndex], this.transform));
+		int sampleIndex = Random.Range(0, this.SoundPack.NumSamples);
+		this.Notes.Add(Instantiate(this.SoundPack.Samples[sampleIndex].NotePrefab, this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 		this.Notes[^1].Bounce();
-		this.Notes[^1].SetSample(this.SoundPack.Samples[Mathf.Min(prefabIndex, this.SoundPack.NumSamples - 1)]);
+		this.Notes[^1].SetSample(this.SoundPack.Samples[sampleIndex]);
 	}
 
 	private void OnDrawGizmos() {
