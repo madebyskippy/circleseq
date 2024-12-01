@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class NoteManager : MonoBehaviour {
 
-	[SerializeField] private SoundPack m_SoundPack;
 	[SerializeField] private Note[] m_NotePrefabs;
 	[SerializeField] private float m_NoteTouchRadius = 0.5f;
 	[SerializeField] private Transform m_NoteSpawnPosition;
@@ -18,9 +17,10 @@ public class NoteManager : MonoBehaviour {
 	private Note GrabbedNote { get; set; }
 	private Vector3 GrabOffset { get; set; }
 	private float SpawnTimer { get; set; }
-	private bool NoteSpawned { get; set; }
+	private SoundPack SoundPack { get; set; }
 
-	private void Start() {
+	public void Initialize(SoundPack soundPack) {
+		this.SoundPack = soundPack;
 		this.Notes = new List<Note>();
 		this.Camera = Camera.main;
 		this.SpawnTimer = -1;
@@ -28,37 +28,39 @@ public class NoteManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (Input.GetMouseButtonDown(0)) {
-			Vector3 position = this.Camera.ScreenToWorldPoint(Input.mousePosition);
-			foreach (Note note in this.Notes) {
-				position.z = note.transform.position.z;
-				if (Vector3.Distance(position, note.transform.position) < m_NoteTouchRadius) {
-					this.GrabbedNote = note;
-					this.GrabOffset = note.transform.position - position;
-					if (this.GrabbedNote.Slot != null) {
-						this.GrabbedNote.Slot.Track.RemoveNote(this.GrabbedNote);
-						this.GrabbedNote.Slot = null;
-					} else {
-						this.SpawnTimer = Time.time;
+		if (this.SoundPack != null) {
+			if (Input.GetMouseButtonDown(0)) {
+				Vector3 position = this.Camera.ScreenToWorldPoint(Input.mousePosition);
+				foreach (Note note in this.Notes) {
+					position.z = note.transform.position.z;
+					if (Vector3.Distance(position, note.transform.position) < m_NoteTouchRadius) {
+						this.GrabbedNote = note;
+						this.GrabOffset = note.transform.position - position;
+						if (this.GrabbedNote.Slot != null) {
+							this.GrabbedNote.Slot.Track.RemoveNote(this.GrabbedNote);
+							this.GrabbedNote.Slot = null;
+						} else {
+							this.SpawnTimer = Time.time;
+						}
+						break;
 					}
-					break;
 				}
 			}
-		}
-		if (Input.GetMouseButtonUp(0)) {
-			PlaceNote(this.GrabbedNote);
-			this.GrabbedNote = null;
-		}
+			if (Input.GetMouseButtonUp(0)) {
+				PlaceNote(this.GrabbedNote);
+				this.GrabbedNote = null;
+			}
 
-		if (this.SpawnTimer > 0 && Time.time - SpawnTimer > m_SpawnInterval) {
-			SpawnNote();
-		}
+			if (this.SpawnTimer > 0 && Time.time - SpawnTimer > m_SpawnInterval) {
+				SpawnNote();
+			}
 
-		if (this.GrabbedNote != null) {
-			Vector3 position = this.Camera.ScreenToWorldPoint(Input.mousePosition) + this.GrabOffset;
-			Vector3 newPosition = Vector3.Lerp(this.GrabbedNote.transform.position, position, 0.5f);
-			newPosition.z = this.GrabbedNote.transform.position.z;
-			this.GrabbedNote.transform.position = newPosition;
+			if (this.GrabbedNote != null) {
+				Vector3 position = this.Camera.ScreenToWorldPoint(Input.mousePosition) + this.GrabOffset;
+				Vector3 newPosition = Vector3.Lerp(this.GrabbedNote.transform.position, position, 0.5f);
+				newPosition.z = this.GrabbedNote.transform.position.z;
+				this.GrabbedNote.transform.position = newPosition;
+			}
 		}
 	}
 
@@ -98,7 +100,7 @@ public class NoteManager : MonoBehaviour {
 		this.Notes.Add(Instantiate(m_NotePrefabs[prefabIndex], this.transform));
 		this.Notes[^1].transform.position = m_NoteSpawnPosition.position;
 		this.Notes[^1].Bounce();
-		this.Notes[^1].SetSample(m_SoundPack.Samples[Mathf.Min(prefabIndex, m_SoundPack.NumSamples - 1)]);
+		this.Notes[^1].SetSample(this.SoundPack.Samples[Mathf.Min(prefabIndex, this.SoundPack.NumSamples - 1)]);
 	}
 
 	private void OnDrawGizmos() {

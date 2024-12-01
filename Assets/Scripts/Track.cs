@@ -14,13 +14,13 @@ public class Track : MonoBehaviour {
 
 	private int LastSlotIndex { get; set; }
 
-	private void Start() {
+	public void Setup(int numSlots) {
 		this.Notes = new List<Note>();
 		this.Slots = new List<Slot>();
-		for (int i = 0; i < m_NumSlots; i++) {
+		for (int i = 0; i < numSlots; i++) {
 			Slot newSlot = Instantiate(m_SlotPrefab, this.transform);
 			newSlot.SetRadius(m_Radius);
-			newSlot.Rotate((360f / m_NumSlots) * i);
+			newSlot.Rotate((360f / numSlots) * i);
 			newSlot.Track = this;
 			newSlot.Note = null;
 			this.Slots.Add(newSlot);

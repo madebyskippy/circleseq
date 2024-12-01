@@ -12,17 +12,22 @@ public class Player : MonoBehaviour {
 	[Min(0.1f)]
 	[SerializeField] private float m_LoopDuration;
 
+	public bool IsPlaying { get; set; }
+
 	private float Progress { get; set; }
 
 	private void Start() {
 		this.Progress = 0;
+		this.IsPlaying = false;
 	}
 
 	private void Update() {
-		this.Progress = Mathf.Repeat(this.Progress + Time.deltaTime / m_LoopDuration, 1f);
-		m_Playhead.rotation = Quaternion.Euler(0, 0, this.Progress * 360f);
-		foreach (Track track in m_Tracks) {
-			track.Play(this.Progress);
+		if (this.IsPlaying) {
+			this.Progress = Mathf.Repeat(this.Progress + Time.deltaTime / m_LoopDuration, 1f);
+			m_Playhead.rotation = Quaternion.Euler(0, 0, this.Progress * 360f);
+			foreach (Track track in m_Tracks) {
+				track.Play(this.Progress);
+			}
 		}
 	}
 }
