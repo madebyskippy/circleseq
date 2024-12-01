@@ -5,7 +5,6 @@ using UnityEngine;
 public class Track : MonoBehaviour {
 
 	[SerializeField] private float m_Radius;
-	[SerializeField] private int m_NumSlots;
 	[SerializeField] private Slot m_SlotPrefab;
 
 	public List<Slot> Slots { get; private set; }
@@ -29,7 +28,7 @@ public class Track : MonoBehaviour {
 	}
 
 	public void Play(float progress) {
-		int slot = Mathf.FloorToInt(progress * m_NumSlots);
+		int slot = Mathf.FloorToInt(progress * this.Slots.Count);
 		if (slot != this.LastSlotIndex) {
 			this.LastSlotIndex = slot;
 			if (this.Slots[slot].Note != null) {
